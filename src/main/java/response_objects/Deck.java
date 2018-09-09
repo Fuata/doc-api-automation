@@ -10,4 +10,23 @@ public class Deck {
     boolean shuffled;
     int remaining;
 
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public String getDeck_id() {
+        return deck_id;
+    }
+
+    public boolean isShuffled() {
+        return shuffled;
+    }
+
+    public int getRemaining() {
+        return remaining;
+    }
 }
