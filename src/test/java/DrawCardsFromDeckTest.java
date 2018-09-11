@@ -1,46 +1,42 @@
+import api.DeckOfCardsAPI;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import response_objects.Deck;
+import steps.DeckOfCardsSteps;
 
 public class DrawCardsFromDeckTest {
 
     DeckOfCardsAPI deckOfCardsAPI;
+    DeckOfCardsSteps deckOfCardsSteps;
 
     @BeforeClass
     public void setupForDrawCardsFromDeckTest() {
         deckOfCardsAPI = new DeckOfCardsAPI();
         deckOfCardsAPI.setBaseURI();
+        deckOfCardsSteps = new DeckOfCardsSteps();
     }
 
-    @Test
+    @Test(description = "Create new deck, draw cards and verify the remaining cards is as expected")
     public void createNewDeckAndDrawCards() {
-        Deck deck = deckOfCardsAPI.getNewDeck();
-        String deckID = deck.getDeck_id();
+        deckOfCardsSteps.createNewDeck();
         int cardsDrawn = 0;
         for(int i = 1; i <= 5; i++) {
-            deckOfCardsAPI.drawCards(deckID, i);
+            deckOfCardsSteps.drawCards(i);
             cardsDrawn += i;
         }
-
-        deck = deckOfCardsAPI.getDeckByID(deck.getDeck_id());
-        Assert.assertEquals(52 - cardsDrawn, deck.getRemaining());
+        deckOfCardsSteps.verifyRemaining(cardsDrawn);
     }
 
-    @Test
+    @Test(description = "Create new deck and draw cards in the same API call, and verify the remaining cards is as expected")
     public void createNewDeckAndDrawCardsInSameAPIRequest() {
-        int cardsDrawn = 0;
-        Deck deck = deckOfCardsAPI.drawCards("new", 1);
-        String deckID = deck.getDeck_id();
-        cardsDrawn++;
-
+        int cardsDrawn = 1;
+        deckOfCardsSteps.createNewDeckAndDrawCardsInSameRequest(cardsDrawn);
         for(int i = 2; i <= 5; i++) {
-            deckOfCardsAPI.drawCards(deckID, i);
+            deckOfCardsSteps.drawCards(i);
             cardsDrawn += i;
         }
-
-        deck = deckOfCardsAPI.getDeckByID(deck.getDeck_id());
-        Assert.assertEquals(52 - cardsDrawn, deck.getRemaining());
+        deckOfCardsSteps.verifyRemaining(cardsDrawn);
     }
 
 }

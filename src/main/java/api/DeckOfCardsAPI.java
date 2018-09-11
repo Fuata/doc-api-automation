@@ -1,3 +1,5 @@
+package api;
+
 import com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
