@@ -1,19 +1,14 @@
 import api.DeckOfCardsAPI;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import response_objects.Deck;
 import steps.DeckOfCardsSteps;
 
 public class DrawCardsFromDeckTest {
 
-    DeckOfCardsAPI deckOfCardsAPI;
-    DeckOfCardsSteps deckOfCardsSteps;
+    private DeckOfCardsSteps deckOfCardsSteps;
 
     @BeforeClass
     public void setupForDrawCardsFromDeckTest() {
-        deckOfCardsAPI = new DeckOfCardsAPI();
-        deckOfCardsAPI.setBaseURI();
         deckOfCardsSteps = new DeckOfCardsSteps();
     }
 

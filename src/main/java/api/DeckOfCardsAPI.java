@@ -14,9 +14,13 @@ public class DeckOfCardsAPI {
     private String baseURI = "https://deckofcardsapi.com/api/deck";
     private RequestSpecification request;
 
-    public void setBaseURI() {
+    public DeckOfCardsAPI() {
         RestAssured.baseURI = baseURI;
     }
+
+//    public void setBaseURI() {
+//        RestAssured.baseURI = baseURI;
+//    }
 
     /**
      * Sends a request to generate a new deck, and returns the response as a Deck object.
