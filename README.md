@@ -11,7 +11,7 @@ I decided to cover two test cases in the end, as they are both very similar, but
 
 **Create new deck and draw cards in the same API call, and verify the remaining cards is as expected**
 1. Call the Draw from New Deck Endpoint, drawing 1 card
-2. Draw from the deck for more times times, drawing 2 cards first, then 3, continuing sequentially to 5 (15 cards total)
+2. Draw from the deck four more times, drawing 2 cards first, then 3, continuing sequentially to 5 (15 cards total)
 3. Call the Deck by Deck ID Endpoint and verify that the remaining count of the deck returned is as expected (52 - 15 = 37)
 
 ## Tools Used
