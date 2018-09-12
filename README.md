@@ -35,7 +35,7 @@ GSON is a Java library, created by Google, to allow for easy serialisation from 
 Lombok allows for the creation of getter and setter methods without the need to explicitly declare them in source code, along with other features. As I decided to use data access objects (DAOs) in my framework, this library comes in very handy when the DAOs become exceptionally large, and every field requires its own getter method.
 
 ### Allure
-I did try to implememnt this as my reporting tool, as Allure allows for very expressive reporting. However, I was unable to get the tool working, as one of the dependencies was not picked up correctly, and adding it manually stopped the surefire logging system from binding properly (log4j).
+I did try to implement this as my reporting tool, as Allure allows for very expressive reporting. However, I was unable to get the tool working, as one of the dependencies was not picked up correctly, and adding it manually stopped the surefire logging system from binding properly (log4j).
 
 ### Simple Logging Facade for Java (SLF4J)
 SLF4J allows for easy management of logging within projects, as it allows you to add any compatible logging framework to the project. Adding expressive logging to the framework, along with establishing a consistent and robust logging process as the automation solution expands, would allow for easier debugging of issues and the ability to track the test run throughout its run.
