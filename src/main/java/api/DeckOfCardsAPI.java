@@ -18,10 +18,6 @@ public class DeckOfCardsAPI {
         RestAssured.baseURI = baseURI;
     }
 
-//    public void setBaseURI() {
-//        RestAssured.baseURI = baseURI;
-//    }
-
     /**
      * Sends a request to generate a new deck, and returns the response as a Deck object.
      *
@@ -33,8 +29,7 @@ public class DeckOfCardsAPI {
 
         Response response = request.get(APIEndpoints.NEW_DECK.getURL());
 
-        Gson g = new Gson();
-        return g.fromJson(response.asString(), Deck.class);
+        return parseResponseToDeck(response);
 
     }
 
@@ -64,8 +59,7 @@ public class DeckOfCardsAPI {
 
         Response response = request.get(url);
 
-        Gson g = new Gson();
-        return g.fromJson(response.asString(), Deck.class);
+        return parseResponseToDeck(response);
 
     }
 
@@ -84,6 +78,16 @@ public class DeckOfCardsAPI {
 
         Response response = request.get(url);
 
+        return parseResponseToDeck(response);
+    }
+
+    /**
+     * Parses the response as a Deck object, and returns it
+     *
+     * @param response  the response to be parsed as a Deck object
+     * @return          the response as a Deck object
+     */
+    public Deck parseResponseToDeck(Response response) {
         Gson g = new Gson();
         return g.fromJson(response.asString(), Deck.class);
     }
